@@ -1,0 +1,40 @@
+﻿@using WorkOrder.Core.Entities
+@model WorkPlace
+@{
+    ViewData["Title"] = "NewWorkPlace";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni İş Yeri</h2>
+
+<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-5">
+					<div class="login-wrap p-4 p-md-5">
+						<form method="post">
+								<div class="form-group ">
+							  <label for="InputName">İsim</label>
+							  <input type="text" name="Name" class="form-control" id="InputName" placeholder="İsim Giriniz" required="">
+							</div>
+							<div class="form-group ">
+							  <label for="InputDescription">Açıklama</label>
+							  <textarea  name="Description" class="form-control" id="InputDescription" placeholder="Açıklama Giriniz" required="" ></textarea>
+							</div>
+							<div class="form-group ">
+							  <label for="InputAdress">Adress</label>
+							  <textarea  name="Adress" class="form-control" id="InputAdress" placeholder="Açıklama Giriniz" required="" ></textarea>
+							</div>
+							<div class="form-group ">
+										<fieldset>
+											<label >Departman</label>
+											@Html.DropDownListFor(x => x.WorkPLaceType, (IEnumerable<SelectListItem>) ViewBag.WorkPlaceTypes)
+										</fieldset>
+							</div>
+							<div class="row justify-content-center">
+								<button type="submit" class="btn btn-primary submit mb-4 mr-4 justify-content-center">Kaydet</button>
+							</div>
+						  </form>
+	        </div>
+				</div>
+			</div>
+		</div>

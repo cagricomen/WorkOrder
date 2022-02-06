@@ -1,0 +1,29 @@
+﻿@using WorkOrder.Core.Entities
+@model List<WorkPLaceType>
+@{
+    ViewData["Title"] = "WorkPlaceType";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>İş Yeri Tipi Tanımlama</h2>
+<a href="~/Admin/NewWorkPlaceType" class="link-primary">Yeni İş Yeri Tipi</a>
+<br />
+<br />
+<table class="table " >
+    <tr>
+        <th>#</th>
+        <th>İsim</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>
+               <a href="~/Admin/EditWorkPlaceType/@item.Id" class="link-primary">Edit</a>|<a href="~/Admin/DeleteWorkPlaceType/@item.Id" class="link-primary">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+

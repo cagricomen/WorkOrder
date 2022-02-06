@@ -1,0 +1,35 @@
+﻿@model WorkOrder.Core.Entities.User
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Güncelle</h2>
+<br />
+
+@using(Html.BeginForm("Update" , "Admin", FormMethod.Post))
+{
+    <div class="form-group">
+        <div class="d-none">
+        @Html.LabelFor(m => m.Id)
+        @Html.TextBoxFor(m => m.Id)
+    </div>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m =>m.Name)
+        @Html.LabelFor(m => m.LastName)
+        @Html.TextBoxFor(m =>m.LastName)
+         @Html.LabelFor(m => m.Password)
+        @Html.TextBoxFor(m =>m.Password)
+         @Html.LabelFor(m => m.PhoneNumber)
+        @Html.TextBoxFor(m =>m.PhoneNumber)
+         @Html.LabelFor(m => m.UserName)
+        @Html.TextBoxFor(m =>m.UserName)
+         @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m =>m.Email)
+        @Html.LabelFor(m => m.Department)
+        @Html.DropDownListFor(m => m.Department, (IEnumerable<SelectListItem>) ViewBag.Departments)
+    </div>
+    <button type="submit" class="btn btn-primary submit mb-4 justify-content-center">Kaydet</button>
+}
+

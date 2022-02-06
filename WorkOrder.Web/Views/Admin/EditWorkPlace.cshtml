@@ -1,0 +1,29 @@
+﻿@model WorkOrder.Core.Entities.WorkPlace
+@{
+    ViewData["Title"] = "EditWorkPlace";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Güncelle</h2>
+<br />
+
+@using(Html.BeginForm("UpdateWorkPlace" , "Admin", FormMethod.Post))
+{
+    
+    <div class="form-group">
+        <div class="d-none">
+        @Html.LabelFor(m => m.Id)
+        @Html.TextBoxFor(m => m.Id)
+    </div >
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m =>m.Name)
+        @Html.LabelFor(m => m.Description)
+        @Html.TextBoxFor(m =>m.Description)
+        @Html.LabelFor(m => m.Adress)
+        @Html.TextBoxFor(m =>m.Adress)
+        @Html.LabelFor(m => m.WorkPLaceType)
+        @Html.DropDownListFor(x => x.WorkPLaceType, (IEnumerable<SelectListItem>) ViewBag.WorkPLaceType)
+    </div>
+    <button type="submit" class="btn btn-primary submit mb-4 justify-content-center">Kaydet</button>
+}
+

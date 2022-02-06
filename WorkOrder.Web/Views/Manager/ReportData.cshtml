@@ -1,0 +1,31 @@
+﻿@using WorkOrder.Core.DTOs
+@model ReportDataDto
+@{
+    ViewData["Title"] = "ReportData";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+<br />
+<h2>Raporlar</h2>
+<br />
+<table class="table table-sm" >
+    <tr>
+        <th >Toplam İş</th>
+        <th  >Biten</th>
+        <th >Beklemede</th>
+        <th  >İptal</th>
+        <th >Talep Edilen</th>
+        <th >Emir Verilen</th>
+        <th  >Yapılıyor</th>
+    </tr>
+        <tr>
+            <td>@Model.AllWork</td>
+            <td>@Model.DoneWork</td>
+            <td>@Model.WaitingWork</td>
+            <td>@Model.CanselWork</td>
+            <td>@Model.RequestWork</td>
+            <td>@Model.OrderWork</td>
+            <td>@Model.DoingWork</td>
+            
+        </tr>
+</table>

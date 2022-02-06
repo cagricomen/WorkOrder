@@ -1,0 +1,55 @@
+﻿@model WorkOrder.Core.Entities.WorkOrders
+
+@{
+    ViewData["Title"] = "EditWorkOrder";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+<h2>Güncelle</h2>
+<br />
+
+@using(Html.BeginForm("UpdateWorkOrder" , "Manager", FormMethod.Post))
+{
+    <div class="form-group">
+        <div class="d-none">
+        @Html.LabelFor(m => m.Id)
+        @Html.TextBoxFor(m => m.Id)
+    </div>
+        @Html.LabelFor(m => m.Job)
+        @Html.TextBoxFor(m =>m.Job)
+        @Html.LabelFor(m => m.Result)
+        @Html.TextBoxFor(m =>m.Result)
+        @Html.LabelFor(m => m.Department)
+        @Html.DropDownListFor(m => m.Department, (IEnumerable<SelectListItem>) ViewBag.Departments)
+        @Html.LabelFor(m => m.CaseType)
+        @Html.DropDownListFor(m => m.CaseType, (IEnumerable<SelectListItem>) ViewBag.CaseTypes)
+        @Html.LabelFor(m => m.User)
+        @Html.DropDownListFor(m => m.User, (IEnumerable<SelectListItem>) ViewBag.Users)
+        @Html.LabelFor(m => m.WorkPlace)
+        @Html.DropDownListFor(m => m.WorkPlace, (IEnumerable<SelectListItem>) ViewBag.WorkPlaces)
+    </div>
+    <button type="submit" class="btn btn-primary submit mb-4 justify-content-center">Kaydet</button>
+}
+
+<script>
+	$(document).ready(function(){ 
+		$('#Department').change(function(){ 
+			var a = $('#Department :selected').text();
+			$('#User').empty();
+			$.ajax({
+					type: 'GET',
+					url: `https://localhost:44358/Manager/ChangeDepValue?dep=${a}`,
+					success: function(data) {
+						$.each(data, function(e,v){
+                            console.log(v);
+							$('#User').append(`<option> ${v.name} ${v.lastName}</option`)
+						} );
+	}
+});
+			
+	});
+});
+</script>
+
+
+

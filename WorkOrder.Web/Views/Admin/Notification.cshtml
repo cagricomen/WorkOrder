@@ -1,0 +1,31 @@
+﻿@using WorkOrder.Core.Entities
+@model List<Notification>
+
+@{
+    ViewData["Title"] = "Notification";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Bildirim Tanımlama</h2>
+<a href="~/Admin/NewNotification" class="link-primary">Yeni Bildirim</a>
+<br />
+<br />
+<table class="table " >
+    <tr>
+        <th class="col-md-2">Başlık</th>
+        <th  class="col-md-3">Açıklama</th>
+        <th  class="col-md-3">Durum</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+            <tr>
+            <td>@item.Header</td>
+            <td>@item.Body</td>
+            <td>@item.CaseType</td>
+            <td>
+               <a href="~/Admin/EditNotification/@item.Id" class="link-primary">Edit</a>|<a href="~/Admin/DeleteNotification/@item.Id" class="link-primary">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

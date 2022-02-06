@@ -1,0 +1,44 @@
+﻿@using WorkOrder.Core.Entities
+@model List<WorkOrders>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+<br />
+<h2>İş Emirleri</h2>
+<div> @ViewBag.UserId </div>
+<br />
+<table class="table table-sm" >
+    <tr>
+        <th>Departman</th>
+        <th>İşi Yapacak Kişi</th>
+        <th>Şirket</th>
+        <th>Manager</th>
+        <th>İş</th>
+        <th>Başlama</th>
+        <th>Bekleme</th>
+        <th>Bitiş</th>
+        <th>Sonuç</th>
+        <th>Durum</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Department.Name</td>
+            <td>@item.User.Name @item.User.LastName</td>
+            <td>@item.WorkPlace.Name</td>
+            <td>@item.ManagerName</td>
+            <td>@item.Job</td>
+            <td>@item.DateOfStart.ToString("M")</td>
+            <td>@item.DateOfWaiting.ToString("M")</td>
+            <td>@item.DateOfFinish.ToString("M")</td>
+            <td>@item.Result</td>
+            <td>@item.CaseType.Name</td>
+            <td>
+               <a href="~/Manager/EditWorkOrder/@item.Id" class="link-primary">Edit</a>|<a href="~/Manager/DeleteWorkOrder/@item.Id" class="link-primary">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+

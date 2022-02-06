@@ -1,0 +1,34 @@
+﻿@using WorkOrder.Core.Entities
+@model List<WorkOrders>
+@{
+    ViewData["Title"] = "WorkOrdersWaiting";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+<h2>İş Beklemeye Alma</h2>
+
+<table class="table table-sm" >
+    <tr>
+        <th>#</th>
+        <th>Departman</th>
+        <th>İşi Yapacak Kişi</th>
+        <th>İş</th>
+        <th>Bitiş</th>
+        <th>Sonuç</th>
+        <th>Durum</th>
+        <th></th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Department.Name</td>
+            <td>@item.User.Name @item.User.LastName</td>
+            <td>@item.Job</td>
+            <td>@item.DateOfFinish.ToString("M")</td>
+            <td>@item.Result</td>
+            <td>@item.CaseType.Name</td>
+            <td><a href="~/Manager/UpdateWorkOrders/@item.Id" class="link-primary"><button type="submit" class="btn btn-primary submit mb-4">İşi Beklemeye Al</button></a></td></tr>
+    }
+</table>
+

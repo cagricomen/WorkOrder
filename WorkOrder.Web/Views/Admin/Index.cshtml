@@ -1,0 +1,39 @@
+﻿@using WorkOrder.Core.Entities
+@model List<User>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Kullanıcı Tanımlama</h2>
+<a href="~/Admin/NewUser" class="link-primary">Yeni Kullanıcı</a>
+<br />
+<br />
+<table class="table " >
+    <tr>
+        <th>İsim</th>
+        <th>KullanıcıAdı</th>
+        <th>Email</th>
+        <th>TelNo</th>
+        <th>Role</th>
+        <th>Şifre</th>
+        <th>Departman</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Name @item.LastName</td>
+            <td>@item.UserName</td>
+            <td>@item.Email</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.UserRole</td>
+            <td>@item.Password</td>
+            <td>@item.Department</td>
+            <td>
+               <a href="~/Admin/Edit/@item.Id" class="link-primary">Edit</a>|<a href="~/Admin/Delete/@item.Id" class="link-primary">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,23 @@
+﻿@model WorkOrder.Core.Entities.Department
+
+@{
+    ViewData["Title"] = "EditDepartment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Güncelle</h2>
+<br />
+
+@using(Html.BeginForm("UpdateDepartment" , "Admin", FormMethod.Post))
+{
+    
+    <div class="form-group">
+        <div class="d-none">
+        @Html.LabelFor(m => m.Id)
+        @Html.TextBoxFor(m => m.Id)
+    </div>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m =>m.Name)
+    </div>
+    <button type="submit" class="btn btn-primary submit mb-4 justify-content-center">Kaydet</button>
+}
