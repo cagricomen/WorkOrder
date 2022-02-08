@@ -134,7 +134,7 @@ namespace WorkOrder.Business.Managers
         public List<User> ChangeDepValue(string dep)
         {
 
-            var res = _userRepository.Where(x => x.Department == dep).ToList();
+            var res = _userRepository.Where(x => x.Department == dep && x.UserRole == UserRole.User).ToList();
             return res;
         }
 
@@ -146,7 +146,7 @@ namespace WorkOrder.Business.Managers
 
         public List<User> UserItems(string departmentName)
         {
-            var users = _userRepository.Where(x => x.Department == departmentName && x.UserRole.Equals("User")).ToList();
+            var users = _userRepository.Where(x => x.Department == departmentName && x.UserRole == UserRole.User).ToList();
             return users;
         }
         public List<CaseType> CaseTypeItems()
@@ -181,6 +181,13 @@ namespace WorkOrder.Business.Managers
             var user = await _userRepository.SingleOrDefaultAsync(x => x.UserName == userName);
 
             return $"{user.Name} {user.LastName}";
+        }
+
+        public async Task<string> DepartmentName(int id)
+        {
+            var depName = await _departmentRepository.GetByIdAsync(id);
+
+            return depName.Name;
         }
     }
 }

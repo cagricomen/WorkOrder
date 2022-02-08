@@ -5,31 +5,66 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Güncelle</h2>
-<br />
-
+<h2>Kullanıcı Güncelle</h2>
 @using(Html.BeginForm("Update" , "Admin", FormMethod.Post))
 {
-    <div class="form-group">
-        <div class="d-none">
-        @Html.LabelFor(m => m.Id)
-        @Html.TextBoxFor(m => m.Id)
-    </div>
-        @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m =>m.Name)
-        @Html.LabelFor(m => m.LastName)
-        @Html.TextBoxFor(m =>m.LastName)
-         @Html.LabelFor(m => m.Password)
-        @Html.TextBoxFor(m =>m.Password)
-         @Html.LabelFor(m => m.PhoneNumber)
-        @Html.TextBoxFor(m =>m.PhoneNumber)
-         @Html.LabelFor(m => m.UserName)
-        @Html.TextBoxFor(m =>m.UserName)
-         @Html.LabelFor(m => m.Email)
-        @Html.TextBoxFor(m =>m.Email)
-        @Html.LabelFor(m => m.Department)
-        @Html.DropDownListFor(m => m.Department, (IEnumerable<SelectListItem>) ViewBag.Departments)
-    </div>
-    <button type="submit" class="btn btn-primary submit mb-4 justify-content-center">Kaydet</button>
+	
+    <div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-5">
+					<div class="login-wrap p-4 p-md-5">
+						<form method="post">
+							<div class="form-group">
+								 <div class="d-none">
+									 @Html.LabelFor(m => m.Id)
+									 @Html.TextBoxFor(m => m.Id)
+								 </div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									@Html.Label("İsim:")
+									@Html.TextBoxFor(m => m.Name, new { @class="form-control" })
+							</div>
+							<div class="form-group col-md-6">
+									@Html.Label("Soyisim:")
+									@Html.TextBoxFor(m => m.LastName, new { @class="form-control" })
+							</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									@Html.Label("KullanıcıAdı:")
+									@Html.TextBoxFor(m => m.UserName, new { @class="form-control" })
+								</div>
+								<div class="form-group col-md-6">
+									@Html.Label("TelNo:")
+									@Html.TextBoxFor(m => m.PhoneNumber, new { @class="form-control" })
+								</div>
+							</div>
+							<div class="form-group">
+								@Html.Label("Email:")
+								@Html.TextBoxFor(m => m.Email, new { @class="form-control", @type = "email"  })
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									@Html.Label("Şifre:")
+									@Html.TextBoxFor(m => m.Password, new { @class="form-control" })
+								</div>
+							<div class="form-group col-md-6">
+									@Html.LabelFor(m => m.Department)
+									@Html.DropDownListFor(m => m.Department, (IEnumerable<SelectListItem>) ViewBag.Departments, new { @class="form-control" })
+							</div>
+							</div>
+							<div class="row justify-content-center">
+								<button type="submit" class="btn btn-primary submit mb-4 justify-content-center">Kaydet</button>
+							</div>
+
+						  </form>
+
+	        </div>
+				</div>
+			</div>
+		</div>
+
+    
 }
 

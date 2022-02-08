@@ -1,0 +1,11 @@
+﻿.myStyle{
+    color: red
+}
+.textBox {
+    width: 50px !IMPORTANT;
+    font-size: 1.00em !IMPORTANT;
+}
+
+.liness{
+    align-items: center
+}

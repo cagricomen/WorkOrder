@@ -27,7 +27,7 @@
 							<div class="form-group ">
 										<fieldset>
 											<label >Departman</label>
-											@Html.DropDownListFor(x => x.WorkPLaceType, (IEnumerable<SelectListItem>) ViewBag.WorkPlaceTypes)
+											@Html.DropDownListFor(x => x.WorkPLaceType, (IEnumerable<SelectListItem>) ViewBag.WorkPlaceTypes, new { @class="form-control" })
 										</fieldset>
 							</div>
 							<div class="row justify-content-center">

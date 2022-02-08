@@ -15,21 +15,35 @@
 					<div class="login-wrap p-4 p-md-5">
 						<form method="post">
 							<div class="row">
-								<div class="form-group col-md-4">
+								<div class="form-group col-md-6">
 							  <fieldset>
 											<label >Departman</label>
-											@Html.DropDownListFor(x => x.Department, (IEnumerable<SelectListItem>) ViewBag.Departments)
+											@Html.DropDownListFor(x => x.Department, (IEnumerable<SelectListItem>) ViewBag.Departments, new { @class="form-control" })
 										</fieldset>
 							</div>
-							<div class="form-group col-md-4">
+							<div class="form-group col-md-6">
 							   <fieldset>
 											<label >İşi Yapacak</label>
-											@Html.DropDownListFor(x => x.User, (IEnumerable<SelectListItem>) ViewBag.Users)
+											@Html.DropDownListFor(x => x.User, (IEnumerable<SelectListItem>) ViewBag.Users, new { @class="form-control" })
 										</fieldset>
 							</div>
-							<div class="form-group col-md-4">
+							</div>
+							<div class="form-group">
 							   <label for="InputDate" >İş Bitiş</label>
 							   <input type="datetime-local" name="DateOfFinish" class="form-control" id="InputDate"  required="">
+							</div>
+							<div class="row">
+							<div class="form-group col-md-6">
+								 <fieldset>
+											<label >Şirket</label>
+											@Html.DropDownListFor(x => x.WorkPlace, (IEnumerable<SelectListItem>) ViewBag.WorkPlaces, new { @class="form-control" })
+										</fieldset>
+							</div>
+							<div class="form-group col-md-6">
+								 <fieldset>
+											<label >İş Durumu</label>
+											@Html.DropDownListFor(x => x.CaseType, (IEnumerable<SelectListItem>) ViewBag.CaseTypes, new { @class="form-control" })
+										</fieldset>
 							</div>
 							</div>
 							<div class="form-group">
@@ -44,21 +58,13 @@
 							<div class="form-group col-md-6">
 								 <fieldset>
 											<label >İş Durumu</label>
-											@Html.DropDownListFor(x => x.CaseType, (IEnumerable<SelectListItem>) ViewBag.CaseTypes)
+											@Html.DropDownListFor(x => x.CaseType, (IEnumerable<SelectListItem>) ViewBag.CaseTypes, new { @class="form-control" })
 										</fieldset>
 							</div>
 							</div>
-							<div class="row">
-							<div class="form-group col-md-6">
+							<div class="form-group">
 										<label for="InputResult">Sonuç</label>
 									<textarea type="text" name="Result" class="form-control" id="InputResult" placeholder="Sonuç" required=""></textarea>
-							</div>
-							<div class="form-group col-md-6">
-								 <fieldset>
-											<label >Şirket</label>
-											@Html.DropDownListFor(x => x.WorkPlace, (IEnumerable<SelectListItem>) ViewBag.WorkPlaces)
-										</fieldset>
-							</div>
 							</div>
 							<div class="row justify-content-center">
 								<button type="submit" class="btn btn-primary submit mb-4 justify-content-center">Kaydet</button>

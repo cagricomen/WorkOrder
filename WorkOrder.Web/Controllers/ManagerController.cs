@@ -56,7 +56,8 @@ namespace WorkOrder.Web.Controllers
         {
             var workOrder = await _managerService.EditWorkOrder(id);
             var departmentItems = ListDepartmentItems();
-            var userItems = ListUserItems("Boya");
+            var depName = await _managerService.DepartmentName(workOrder.DepartmentId);
+            var userItems = ListUserItems(depName);
             var caseTypesItems = ListCaseItems();
             var workPlaceItems = ListWorkPlaceItems();
             ViewBag.Departments = departmentItems;

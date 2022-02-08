@@ -57,7 +57,7 @@
 							<div class="form-group col-md-6">
 										<fieldset>
 											<label >Departman</label>
-											@Html.DropDownListFor(x => x.Department, (IEnumerable<SelectListItem>) ViewBag.Departments)
+											@Html.DropDownListFor(x => x.Department, (IEnumerable<SelectListItem>) ViewBag.Departments, new { @class="form-control" })
 										</fieldset>
 							</div>
 							</div>
